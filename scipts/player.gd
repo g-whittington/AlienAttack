@@ -22,3 +22,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Call this to move the player by its velocity
 	move_and_slide()
+	
+	# Clamp the player position to the screen sizea
+	global_position = global_position.clamp(Vector2.ZERO, get_viewport_rect().size)
