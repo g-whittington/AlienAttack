@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-@export var move_speed := 300
+@export var move_speed := 500
+# This is like a blueprint to create rockets
+const ROCKET = preload("res://scenes/rocket.tscn")
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
@@ -32,4 +34,4 @@ func _physics_process(delta: float) -> void:
 	
 # Handles the instantiating of rocket scences on request
 func shoot_rocket() -> void:
-	print("die")
+	add_child(ROCKET.instantiate())
