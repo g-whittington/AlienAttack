@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 @export var move_speed := 300
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("shoot"):
+		shoot_rocket()
+
 # Player has an attribute "velocity" which move_and_slide() uses to move
 func _physics_process(delta: float) -> void:
 	# Only move when the keys are actually pressed
@@ -25,3 +29,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Clamp the player position to the screen sizea
 	global_position = global_position.clamp(Vector2.ZERO, get_viewport_rect().size)
+	
+# Handles the instantiating of rocket scences on request
+func shoot_rocket() -> void:
+	print("die")
