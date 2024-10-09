@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var move_speed := 500
+@export var move_speed := 300
 # This is like a blueprint to create rockets
 const ROCKET = preload("res://scenes/rocket.tscn")
 

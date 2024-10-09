@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed: int = 300
+@export var speed: int = 500
 
 func _physics_process(delta: float) -> void:
 	# Having speed*delta, it now changes the pixels/second moved to be
