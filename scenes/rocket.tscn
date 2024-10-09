@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3cbj2ygs7lsw"]
+
+[ext_resource type="Texture2D" uid="uid://dqp56btt3qrb2" path="res://assets/textures/rocket.png" id="1_a7hjy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6vkv"]
+radius = 15.0
+height = 72.0
+
+[node name="Rocket" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_a7hjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_u6vkv")
