@@ -1,6 +1,7 @@
 extends Node2D
 
 
+signal enemy_spawned(enemy_instance: Area2D)
 # enemies that can be spawned
 const ENEMY = preload("res://scenes/enemy.tscn")
 
@@ -18,4 +19,4 @@ func spawn_enemy() -> void:
 	# change the enemy postion to be on the marker
 	enemy_instance.global_position = spawn_position.global_position
 		
-	add_child(enemy_instance)
+	emit_signal("enemy_spawned", enemy_instance)

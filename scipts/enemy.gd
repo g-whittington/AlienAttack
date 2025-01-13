@@ -1,6 +1,8 @@
 extends Area2D
 
 
+signal enemy_death
+
 @export var speed: int = -300
 
 func _physics_process(delta: float) -> void:
@@ -8,6 +10,7 @@ func _physics_process(delta: float) -> void:
 
 # allowing the enemy instacne be the one to queue free it
 func die() -> void:
+	emit_signal("enemy_death")
 	queue_free()
 
 # collision resolution for with the player
