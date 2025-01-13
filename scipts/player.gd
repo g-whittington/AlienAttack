@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 
+signal took_damage
+
 @export var move_speed := 300
 
 # This is like a blueprint to create rockets
@@ -48,3 +50,9 @@ func shoot_rocket() -> void:
 	rocket_instance.global_position = global_position + Vector2(80, 0)
 	# add it to the list of rockets so it doesn't movw with the player
 	rocket_container.add_child(rocket_instance)
+
+func take_damage() -> void:
+	emit_signal("took_damage")
+
+func die() -> void:
+	queue_free()

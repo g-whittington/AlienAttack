@@ -33,3 +33,5 @@ shape = SubResource("CircleShape2D_at000")
 [node name="CollisionBottomWing" type="CollisionShape2D" parent="."]
 position = Vector2(27, 19)
 shape = SubResource("CircleShape2D_at000")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

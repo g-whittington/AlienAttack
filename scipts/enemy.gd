@@ -9,3 +9,8 @@ func _physics_process(delta: float) -> void:
 # allowing the enemy instacne be the one to queue free it
 func die() -> void:
 	queue_free()
+
+# collision resolution for with the player
+func _on_body_entered(body: Node2D) -> void:
+	body.take_damage()
+	die()
