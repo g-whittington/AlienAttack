@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://buvrh4vdr34ak" path="res://assets/textures/enemy_ship.png" id="1_yks73"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t5mgo"]
-radius = 34.0
+radius = 27.0
 height = 130.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_at000"]
@@ -17,19 +17,19 @@ script = ExtResource("1_cuxx6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_yks73")
 flip_h = true
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
-position = Vector2(-16, 0)
+position = Vector2(-3, 1)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_t5mgo")
 
 [node name="CollisionTopWing" type="CollisionShape2D" parent="."]
-position = Vector2(28, -31)
+position = Vector2(27, -19)
 shape = SubResource("CircleShape2D_at000")
 
 [node name="CollisionBottomWing" type="CollisionShape2D" parent="."]
-position = Vector2(29, 30)
+position = Vector2(27, 19)
 shape = SubResource("CircleShape2D_at000")
