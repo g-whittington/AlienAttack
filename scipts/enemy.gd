@@ -5,3 +5,7 @@ extends Area2D
 
 func _physics_process(delta: float) -> void:
 	global_position.x += speed*delta
+
+# allowing the enemy instacne be the one to queue free it
+func die() -> void:
+	queue_free()
