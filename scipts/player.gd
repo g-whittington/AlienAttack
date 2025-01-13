@@ -1,8 +1,15 @@
 extends CharacterBody2D
 
 @export var move_speed := 300
+
 # This is like a blueprint to create rockets
 const ROCKET = preload("res://scenes/rocket.tscn")
+
+# removes the tie of the rocket instances from the player transform
+@onready var rocket_container: Node = $RocketContainer
+
+func _ready():
+	get_node("RocketContainer")
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
@@ -34,4 +41,9 @@ func _physics_process(delta: float) -> void:
 	
 # Handles the instantiating of rocket scences on request
 func shoot_rocket() -> void:
-	add_child(ROCKET.instantiate())
+	# make a rocket object
+	var rocket_instance := ROCKET.instantiate()
+	# set its position to the player and an additional 80px to the right
+	rocket_instance.global_position = global_position + Vector2(80, 0)
+	# add it to the list of rockets so it doesn't movw with the player
+	rocket_container.add_child(rocket_instance)
