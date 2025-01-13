@@ -1,5 +1,6 @@
 extends Area2D
 
+
 @export var speed: int = 500
 # used to delete rocket instances when the rocket is off screen
 @onready var visible_notifier: VisibleOnScreenNotifier2D = $VisibleNotifier
