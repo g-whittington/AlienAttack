@@ -5,6 +5,10 @@ var lives := 3
 var score := 0
 
 @onready var player: CharacterBody2D = $Player
+@onready var hud: Control = $UI/HUD
+
+func _ready():
+	hud.set_score_label(score)
 
 # will kill missed enemies
 func _on_death_zone_area_entered(area: Area2D) -> void:
@@ -24,3 +28,5 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance: Area2D) -> void:
 
 func _on_enemy_death() -> void:
 	score += 100
+	hud.set_score_label(score)
+	
