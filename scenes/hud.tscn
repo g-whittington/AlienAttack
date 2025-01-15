@@ -9,9 +9,11 @@ font = ExtResource("1_ibm2l")
 font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_7nqs1"]
+font = ExtResource("1_ibm2l")
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_m33qt"]
+font = ExtResource("1_ibm2l")
 font_size = 50
 
 [node name="HUD" type="Control"]
@@ -34,9 +36,9 @@ label_settings = SubResource("LabelSettings_315mr")
 
 [node name="LifeTextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_top = 64.0
+offset_top = 67.0
 offset_right = 126.0
-offset_bottom = 182.0
+offset_bottom = 185.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_bdbo7")
 
@@ -45,19 +47,19 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -582.0
+offset_left = -579.0
 offset_top = 72.0
-offset_right = -562.0
-offset_bottom = 117.0
+offset_right = -556.0
+offset_bottom = 118.0
 grow_horizontal = 2
 text = "X"
 label_settings = SubResource("LabelSettings_7nqs1")
 
 [node name="LivesLeft" type="Label" parent="."]
 layout_mode = 0
-offset_left = 80.0
+offset_left = 88.0
 offset_top = 56.0
-offset_right = 110.0
-offset_bottom = 125.0
+offset_right = 126.0
+offset_bottom = 132.0
 text = "3"
 label_settings = SubResource("LabelSettings_m33qt")

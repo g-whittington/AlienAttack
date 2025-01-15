@@ -6,6 +6,9 @@ var score := 0
 
 @onready var player: CharacterBody2D = $Player
 @onready var hud: Control = $UI/HUD
+@onready var ui: CanvasLayer = $UI
+
+const GAME_OVER_SCREEN = preload("res://scenes/game_over_screen.tscn")
 
 func _ready():
 	hud.set_score_label(score)
@@ -13,7 +16,8 @@ func _ready():
 
 # will kill missed enemies
 func _on_death_zone_area_entered(area: Area2D) -> void:
-	area.die()
+	# so score is not increased 
+	area.queue_free()
 
 # handles the lives count in the game scene 
 func _on_player_took_damage() -> void:
@@ -21,6 +25,13 @@ func _on_player_took_damage() -> void:
 	hud.set_lives_left_label(lives)
 	if lives == 0:
 		player.die()
+		
+		# awaiting for the timeout signal to pulse
+		await get_tree().create_timer(1.5).timeout
+		
+		var game_over: Control = GAME_OVER_SCREEN.instantiate()
+		game_over.set_score(score)
+		ui.add_child(game_over)
 
 # used to add enemies as children of the game scene instead of spawner
 func _on_enemy_spawner_enemy_spawned(enemy_instance: Area2D) -> void:
