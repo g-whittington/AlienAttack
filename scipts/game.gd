@@ -9,6 +9,7 @@ var score := 0
 
 func _ready():
 	hud.set_score_label(score)
+	hud.set_lives_left_label(lives)
 
 # will kill missed enemies
 func _on_death_zone_area_entered(area: Area2D) -> void:
@@ -17,6 +18,7 @@ func _on_death_zone_area_entered(area: Area2D) -> void:
 # handles the lives count in the game scene 
 func _on_player_took_damage() -> void:
 	lives -= 1
+	hud.set_lives_left_label(lives)
 	if lives == 0:
 		player.die()
 
