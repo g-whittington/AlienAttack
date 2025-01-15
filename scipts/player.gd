@@ -7,6 +7,7 @@ signal took_damage
 
 # This is like a blueprint to create rockets
 const ROCKET = preload("res://scenes/rocket.tscn")
+@onready var rocket_fire_sound: AudioStreamPlayer = $RocketFireSound
 
 # removes the tie of the rocket instances from the player transform
 @onready var rocket_container: Node = $RocketContainer
@@ -44,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	
 # Handles the instantiating of rocket scences on request
 func shoot_rocket() -> void:
+	rocket_fire_sound.play()
 	# make a rocket object
 	var rocket_instance := ROCKET.instantiate()
 	# set its position to the player and an additional 80px to the right
