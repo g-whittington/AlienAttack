@@ -25,6 +25,9 @@ func _ready():
 # will kill missed enemies
 func _on_death_zone_area_entered(area: Area2D) -> void:
 	# so score is not increased 
+	if score > 0:
+		score -= 50
+		hud.set_score_label(score)
 	area.queue_free()
 
 # handles the lives count in the game scene 
@@ -48,6 +51,10 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance: Area2D) -> void:
 	# connects the enemy signal in the game scene
 	enemy_instance.connect("enemy_death", _on_enemy_death)
 	add_child(enemy_instance)
+
+func _on_enemy_spawner_path_enemy_spawned(enemy_instacne: Path2D) -> void:
+	add_child(enemy_instacne)
+	enemy_instacne.enemy.connect("enemy_death", _on_enemy_death)
 
 func _on_enemy_death() -> void:
 	score += 100
