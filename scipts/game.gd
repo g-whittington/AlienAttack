@@ -4,6 +4,7 @@ extends Node2D
 # Player stats to send to the UI
 var lives := 3
 var score := 0
+var alive := true
 
 # Objects on the screen 
 @onready var player: CharacterBody2D = $Player
@@ -25,7 +26,7 @@ func _ready():
 # will kill missed enemies
 func _on_death_zone_area_entered(area: Area2D) -> void:
 	# so score is not increased 
-	if score > 0:
+	if score > 0 and alive:
 		score -= 50
 		hud.set_score_label(score)
 	area.queue_free()
@@ -37,6 +38,7 @@ func _on_player_took_damage() -> void:
 	hud.set_lives_left_label(lives)
 	if lives == 0:
 		player.die()
+		alive = false
 		background_music.stop()
 		
 		# awaiting for the timeout signal to pulse
